@@ -1,0 +1,30 @@
+﻿@model Course
+
+@{
+    ViewData["Title"] = "List Groups";
+}
+
+<h1>List Groups</h1>
+
+<div>
+    <h4>Course @Model.Name</h4>
+    <table class="table">
+    <tr>
+        <th>NameGroup</th>
+    </tr>
+
+    @foreach(Group group in Model.Groups)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => group.Name);
+            </td>
+            <td>
+                    <a href="~/Groups/Edit/@group.Id">Edit</a> |
+                    <a href="~/Groups/ViewListStudents/@group.Id">View List Students</a> |
+                    <a href="~/Groups/Delete/@group.Id">Delete</a>
+            </td>
+        </tr>    
+    }
+
+</div>
